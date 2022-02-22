@@ -113,9 +113,9 @@ def vid_to_frames(path):
 # For this to wrok your custom trainig has to be done as mentioned in the lectures
 
 emojidict = dict(
-    happy = vid_to_frames('assets/happy.png'),
-    sad = vid_to_frames('assets/sad.png'),
-    surprised = vid_to_frames('assets/surprised.png')       
+    uno = vid_to_frames('assets/uno.png'),
+    tres = vid_to_frames('assets/tres.png'),
+    cinco = vid_to_frames('assets/cinco.png')       
     )
 
 current = None

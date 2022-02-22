@@ -1,1 +1,1 @@
-# Emotion_Detection
+# Gestual Detection with YoloX

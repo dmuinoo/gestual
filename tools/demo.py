@@ -24,32 +24,6 @@ palette = (2 ** 11 - 1, 2 ** 15 - 1, 2 ** 20 - 1)
 
 
 
-# Draws the disconnected Rectangle around the object
-def draw_disconnected_rect( img, pt1, pt2, color, thickness):
-    width = pt2[0] - pt1[0]
-    height = pt2[1] - pt1[1]
-    line_width = min(30, width // 3)
-    line_height = min(30, height // 3)
-    line_length = max(line_width, line_height)
-    cv2.line(img, pt1, (pt1[0] + line_length, pt1[1]), color, thickness)
-    cv2.line(img, pt1, (pt1[0], pt1[1] + line_length), color, thickness)
-    cv2.line(
-        img, (pt2[0] - line_length, pt1[1]), (pt2[0], pt1[1]), color, thickness
-    )
-    cv2.line(
-        img, (pt2[0], pt1[1]), (pt2[0], pt1[1] + line_length), color, thickness
-    )
-    cv2.line(
-        img, (pt1[0], pt2[1]), (pt1[0] + line_length, pt2[1]), color, thickness
-    )
-    cv2.line(
-        img, (pt1[0], pt2[1] - line_length), (pt1[0], pt2[1]), color, thickness
-    )
-    cv2.line(img, pt2, (pt2[0] - line_length, pt2[1]), color, thickness)
-    cv2.line(img, (pt2[0], pt2[1] - line_length), pt2, color, thickness)
-
-
-
 # Draws the shape of label component
 def draw_border(img, pt1, pt2, color, thickness, r, d):
     x1,y1 = pt1
@@ -80,6 +54,31 @@ def draw_border(img, pt1, pt2, color, thickness, r, d):
     cv2.circle(img, (x1 +r, y2-r), 2, color, 12)
     cv2.circle(img, (x2 -r, y2-r), 2, color, 12)    
     return img
+    
+    
+# Draws the disconnected Rectangle around the object
+def draw_disconnected_rect( img, pt1, pt2, color, thickness):
+    width = pt2[0] - pt1[0]
+    height = pt2[1] - pt1[1]
+    line_width = min(30, width // 3)
+    line_height = min(30, height // 3)
+    line_length = max(line_width, line_height)
+    cv2.line(img, pt1, (pt1[0] + line_length, pt1[1]), color, thickness)
+    cv2.line(img, pt1, (pt1[0], pt1[1] + line_length), color, thickness)
+    cv2.line(
+        img, (pt2[0] - line_length, pt1[1]), (pt2[0], pt1[1]), color, thickness
+    )
+    cv2.line(
+        img, (pt2[0], pt1[1]), (pt2[0], pt1[1] + line_length), color, thickness
+    )
+    cv2.line(
+        img, (pt1[0], pt2[1]), (pt1[0] + line_length, pt2[1]), color, thickness
+    )
+    cv2.line(
+        img, (pt1[0], pt2[1] - line_length), (pt1[0], pt2[1]), color, thickness
+    )
+    cv2.line(img, pt2, (pt2[0] - line_length, pt2[1]), color, thickness)
+    cv2.line(img, (pt2[0], pt2[1] - line_length), pt2, color, thickness)
 
 # Implementing the label component
 def UI_box2(x, img, color=None,label=None,line_thickness=None, boundingbox = True):

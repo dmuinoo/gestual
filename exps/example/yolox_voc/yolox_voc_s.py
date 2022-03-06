@@ -11,9 +11,10 @@ from yolox.data import get_yolox_datadir
 class Exp(MyExp):
     def __init__(self):
         super(Exp, self).__init__()
-        self.num_classes = 20
+        self.num_classes = 1
         self.depth = 0.33
         self.width = 0.50
+        self.max_epoch = 10
         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
 
     def get_data_loader(self, batch_size, is_distributed, no_aug=False):
